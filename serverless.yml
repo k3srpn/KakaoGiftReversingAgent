@@ -1,0 +1,24 @@
+service: aws-node-http-api-project
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-northeast-2
+  stage: dev
+
+plugins:
+  - serverless-offline
+
+# custom:
+#   # serverless-offline:
+#   #   httpsProtocol: cert
+
+functions:
+  api:
+    handler: index.handler
+    timeout: 300
+    events:
+      - httpApi:
+          path: /
+          method: get
