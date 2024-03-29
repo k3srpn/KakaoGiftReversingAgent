@@ -25,8 +25,6 @@ module.exports.handler = async () => {
     content + `${Object.values((result)).join(",")}\n`
     , "")
 
-
-
   fs.writeFile(filename, content, err => {
     if (err) {
       console.error(err);
@@ -35,7 +33,6 @@ module.exports.handler = async () => {
       console.log("Success")
     }
   })
-
 
   return {
     statusCode: 200,
